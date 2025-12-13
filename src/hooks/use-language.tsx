@@ -7,13 +7,13 @@ type Language = 'en' | 'zh';
 type LanguageContextType = {
   language: Language;
   setLanguage: (lang: Language) => void;
-  t: (typeof content)['en'];
+  t: (typeof content)['en'] | (typeof content)['zh'];
 };
 
 const LanguageContext = createContext<LanguageContextType | null>(null);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguage] = useState<Language>('en');
+  const [language, setLanguage] = useState<Language>('zh');
   
   const t = useMemo(() => content[language], [language]);
 
