@@ -1,3 +1,4 @@
+
 export const placeholderImages = [
     {
       id: "1",
@@ -177,152 +178,152 @@ const content = {
     }
   },
   zh: {
-    appName: '故事讲述者',
+    appName: '故事講述者',
     sidebar: {
-      home: '故事模板',
-      prompts: '灵感生成器',
-      expander: '故事扩展',
-      library: '范例库',
-      skills: '写作技巧',
-      feedback: '提交反馈',
+      home: '故事範本',
+      prompts: '靈感產生器',
+      expander: '故事擴展',
+      library: '範例庫',
+      skills: '寫作技巧',
+      feedback: '提交回饋',
     },
     interactiveTemplate: {
-      title: '创作你的故事',
-      description: '填写空白，构建你故事的基础。',
-      cardTitle: '故事大纲',
-      cardDescription: '每个伟大的故事都始于一个计划。让我们来构建你的！',
-      characterName: { label: '角色名称', placeholder: '例如，狮子利奥' },
-      characterTraits: { label: '角色特点', placeholder: '例如，勇敢但害怕蜘蛛' },
-      setting: { label: '故事背景', placeholder: '例如，在一个树木会窃窃私语的魔法森林里' },
-      plotPoints: '情节要点',
-      problem: { label: '问题/目标', placeholder: '例如，太阳从天空中消失了...' },
-      climax: { label: '高潮', placeholder: '例如，利奥对抗偷走太阳的影子怪物。' },
-      resolution: { label: '结局', placeholder: '例如，利奥发现怪物只是孤独，他们成了朋友。' },
-      moral: { label: '故事寓意（可选）', placeholder: '例如，友谊可以在意想不到的地方找到。', description: '你的故事教会了什么道理？' },
-      submitButton: '扩展成一个故事',
+      title: '創作你的故事',
+      description: '填寫空白，建構你故事的基礎。',
+      cardTitle: '故事大綱',
+      cardDescription: '每個偉大的故事都始於一個計畫。讓我們來建構你的！',
+      characterName: { label: '角色名稱', placeholder: '例如，獅子利奧' },
+      characterTraits: { label: '角色特點', placeholder: '例如，勇敢但害怕蜘蛛' },
+      setting: { label: '故事背景', placeholder: '例如，在一個樹木會竊竊私語的魔法森林裡' },
+      plotPoints: '情節要點',
+      problem: { label: '問題/目標', placeholder: '例如，太陽從天空中消失了...' },
+      climax: { label: '高潮', placeholder: '例如，利奧對抗偷走太陽的影子怪物。' },
+      resolution: { label: '結局', placeholder: '例如，利奧發現怪物只是孤獨，他們成了朋友。' },
+      moral: { label: '故事寓意（可選）', placeholder: '例如，友誼可以在意想不到的地方找到。', description: '你的故事教會了什麼道理？' },
+      submitButton: '擴展成一個故事',
     },
     prompts: {
-      title: '生成故事灵感',
-      description: '没有想法？让我们激发你的想象力！',
-      cardTitle: '获取灵感',
-      cardDescription: '告诉我们一个主题和一些关键词，我们将为你生成一个独特的故事创意。',
-      theme: { label: '主题', placeholder: '例如，友谊、勇气' },
-      keywords: { label: '关键词', placeholder: '例如，龙、城堡、秘密' },
-      button: '生成灵感',
-      buttonLoading: '生成中...',
+      title: '產生故事靈感',
+      description: '沒有想法？讓我們激發你的想像力！',
+      cardTitle: '獲取靈感',
+      cardDescription: '告訴我們一個主題和一些關鍵詞，我們將為你產生一個獨特的故事創意。',
+      theme: { label: '主題', placeholder: '例如，友誼、勇氣' },
+      keywords: { label: '關鍵詞', placeholder: '例如，龍、城堡、秘密' },
+      button: '產生靈感',
+      buttonLoading: '產生中...',
       result: {
-        title: '你的故事灵感',
-        description: '这是你下一次冒险的起点。',
-        placeholder: '你生成的灵感将显示在这里。'
+        title: '你的故事靈感',
+        description: '這是你下一次冒險的起點。',
+        placeholder: '你產生的靈感將顯示在這裡。'
       },
     },
     expander: {
-        title: '扩展你的故事',
-        description: '将你简单的提纲变成一个丰富精彩的故事。',
+        title: '擴展你的故事',
+        description: '將你簡單的提綱變成一個豐富精彩的故事。',
         outline: {
-            title: '你的大纲',
-            description: '在此处粘贴你的故事大纲，或使用模板中的大纲。',
-            placeholder: '例如，一只害羞的松鼠想交朋友...'
+            title: '你的大綱',
+            description: '在此處貼上你的故事大綱，或使用範本中的大綱。',
+            placeholder: '例如，一隻害羞的松鼠想交朋友...'
         },
-        button: '扩展故事',
-        buttonLoading: '写作中...',
+        button: '擴展故事',
+        buttonLoading: '寫作中...',
         result: {
             title: '你完成的故事',
-            description: '这是你故事的完整版本！',
-            placeholder: '你扩展的故事将神奇地出现在这里。'
+            description: '這是你故事的完整版本！',
+            placeholder: '你擴展的故事將神奇地出現在這裡。'
         },
         error: {
-            title: '大纲为空',
-            description: '在扩展故事之前，请提供一个大纲。'
+            title: '大綱為空',
+            description: '在擴展故事之前，請提供一個大綱。'
         }
     },
     library: {
-        title: '范例库',
-        description: '探索这些故事以获取灵感。',
+        title: '範例庫',
+        description: '探索這些故事以獲取靈感。',
         examples: [
             {
-                title: '找到朋友的小机器人',
-                summary: '一个孤独的机器人在大城市里与一只小鸟成为了意想不到的朋友。',
-                fullText: '单元734是一个小小的银色机器人。他每天都擦拭着城市里高耸的玻璃大楼。他看到很多人，但他总是孤身一人。一天，一只翅膀受伤的蓝色小鸟落在了他的肩膀上。单元734小心翼翼地在他的充电站里为小鸟筑了一个小巢。小鸟在康复期间，为机器人唱着甜美的歌曲。当小鸟的翅膀好了，它没有飞走。它留在了单元734身边，小机器人再也不孤单了。'
+                title: '找到朋友的小機器人',
+                summary: '一個孤獨的機器人在大城市裡與一隻小鳥成為了意想不到的朋友。',
+                fullText: '單元734是一個小小的銀色機器人。他每天都擦拭著城市裡高聳的玻璃大樓。他看到很多人，但他總是孤身一人。一天，一隻翅膀受傷的藍色小鳥落在了他的肩膀上。單元734小心翼翼地在他的充電站裡為小鳥築了一個小巢。小鳥在康復期間，為機器人唱著甜美的歌曲。當小鳥的翅膀好了，它沒有飛走。它留在了單元734身邊，小機器人再也不孤單了。'
             },
             {
-                title: '魔法树屋',
-                summary: '两个朋友建造了一个可以飞到任何他们想象地方的树屋。',
-                fullText: '米娅和汤姆最想要一个树屋。他们收集了旧木板、弯曲的钉子和彩色的油漆。它不完美，但它是他们的。一个阳光明媚的下午，米娅希望能看到大海。树屋嘎吱作响，然后升入了空中！他们飞越了他们的小镇，降落在一个沙滩上。他们的魔法树屋可以带他们去任何地方，只要他们一起想象。'
+                title: '魔法樹屋',
+                summary: '兩個朋友建造了一個可以飛到任何他們想像地方的樹屋。',
+                fullText: '米婭和湯姆最想要一個樹屋。他們收集了舊木板、彎曲的釘子和彩色的油漆。它不完美，但它是他們的。一個陽光明媚的下午，米婭希望能看到大海。樹屋嘎吱作響，然後升入了空中！他們飛越了他們的小鎮，降落在一個沙灘上。他們的魔法樹屋可以帶他們去任何地方，只要他們一起想像。'
             },
             {
-                title: '脾气暴躁的熊的惊喜',
-                summary: '一只只想睡觉的脾气暴躁的熊，从一只执着的松鼠那里学会了分享的快乐。',
-                fullText: '熊巴纳比脾气很坏。冬天快到了，他只想睡觉。但一只叫吱吱的小松鼠不停地敲他的门。“走开！”巴纳比会咆哮。一天，吱吱在他的门口放了一颗完美的橡子。巴纳比抱怨着，但还是吃了。它很美味。第二天，他发现了两颗橡子。很快，他的门口就堆满了坚果和浆果。巴纳比意识到吱吱想成为他的朋友。他打开门，邀请小松鼠进来分享盛宴。巴纳比不再那么脾气暴躁了。'
+                title: '脾氣暴躁的熊的驚喜',
+                summary: '一隻只想睡覺的脾氣暴躁的熊，從一隻執著的松鼠那裡學會了分享的快樂。',
+                fullText: '熊巴納比脾氣很壞。冬天快到了，他只想睡覺。但一隻叫吱吱的小松鼠不停地敲他的門。「走開！」巴納比會咆哮。一天，吱吱在他的門口放了一顆完美的橡子。巴納比抱怨著，但還是吃了。它很美味。第二天，他發現了兩顆橡子。很快，他的門口就堆滿了堅果和漿果。巴納比意識到吱吱想成為他的朋友。他打開門，邀請小松鼠進來分享盛宴。巴納比不再那麼脾氣暴躁了。'
             },
         ],
     },
     skills: {
-        title: '提高你的写作技巧',
-        description: '学习技巧，让你的故事更上一层楼。',
+        title: '提高你的寫作技巧',
+        description: '學習技巧，讓你的故事更上一層樓。',
         example: '例子',
         before: '之前',
-        after: '之后',
+        after: '之後',
         skillList: [
             {
-                title: '使用简洁的语言',
-                explanation: '好的写作清晰明了。避免不必要的词语，使你的句子更有力。',
+                title: '使用簡潔的語言',
+                explanation: '好的寫作清晰明瞭。避免不必要的詞語，使你的句子更有力。',
                 example: {
-                    before: '那个非常巨大、庞大的巨人慢慢地走向那个小村庄。',
-                    after: '那个庞大的巨人蹒跚地走向村庄。'
+                    before: '那個非常巨大、龐大的巨人慢慢地走向那個小村莊。',
+                    after: '那個龐大的巨人蹣跚地走向村莊。'
                 }
             },
             {
-                title: '添加声音',
-                explanation: '调动读者的听觉！使用描述声音的词语会让故事更具沉浸感。',
+                title: '添加聲音',
+                explanation: '調動讀者的聽覺！使用描述聲音的詞語會讓故事更具沈浸感。',
                 example: {
-                    before: '门开了，风吹了进来。',
-                    after: '门嘎吱一声呻吟着打开了，风从缝隙中呼啸而入。'
+                    before: '門開了，風吹了進來。',
+                    after: '門嘎吱一聲呻吟著打開了，風從縫隙中呼嘯而入。'
                 }
             },
             {
-                title: '意想不到的惊喜',
-                explanation: '一个好故事有转折。用读者意想不到的情节给他们一个惊喜。',
+                title: '意想不到的驚喜',
+                explanation: '一個好故事有轉折。用讀者意想不到的情節給他們一個驚喜。',
                 example: {
-                    before: '骑士与龙搏斗并获胜。',
-                    after: '当骑士举起剑时，龙打了个喷嚏，原来它只是一只感冒了的龙宝宝。'
+                    before: '騎士與龍搏鬥並獲勝。',
+                    after: '當騎士舉起劍時，龍打了個噴嚏，原來它只是一隻感冒了的龍寶寶。'
                 }
             },
             {
-                title: '节奏与重复',
-                explanation: '使用重复的短语或句子结构可以创造出令人难忘的节奏，尤其适合年幼的读者。',
+                title: '節奏與重複',
+                explanation: '使用重複的片語或句子結構可以創造出令人難忘的節奏，尤其適合年幼的讀者。',
                 example: {
-                    before: '猫在找它的玩具。它在盒子里找。它在椅子上找。',
-                    after: '小猫的玩具在哪里，哦，在哪里？在盒子里吗？不，不，不。在椅子上吗？不，不，不。'
+                    before: '貓在找它的玩具。它在盒子裡找。它在椅子上找。',
+                    after: '小貓的玩具在哪裡，哦，在哪裡？在盒子裡嗎？不，不，不。在椅子上嗎？不，不，不。'
                 }
             },
             {
                 title: '展示，而非告知情感',
-                explanation: '不要直接说一个角色很伤心，而是描述他们的行为。这有助于读者感受情感。',
+                explanation: '不要直接說一個角色很傷心，而是描述他們的行為。這有助於讀者感受情感。',
                 example: {
-                    before: '那个男孩很伤心。',
-                    after: '男孩的肩膀垮了下来，一滴眼泪顺着他的脸颊滑落。'
+                    before: '那個男孩很傷心。',
+                    after: '男孩的肩膀垮了下來，一滴眼淚順著他的臉頰滑落。'
                 }
             }
         ]
     },
     feedback: {
-        title: '提交反馈',
-        description: '有一个让你自豪的故事吗？发给我们吧！',
+        title: '提交回饋',
+        description: '有一個讓你自豪的故事嗎？發給我們吧！',
         cardTitle: '分享你的作品',
-        cardDescription: '我们喜欢读你们的故事！请在下面提交你的草稿或大纲。这不会被AI处理。',
-        email: { label: '你的邮箱', placeholder: 'you@example.com' },
-        story: { label: '你的故事/大纲', placeholder: '从前...' },
-        submitButton: '提交反馈',
+        cardDescription: '我們喜歡讀你們的故事！請在下面提交你的草稿或大綱。這不會被AI處理。',
+        email: { label: '你的信箱', placeholder: 'you@example.com' },
+        story: { label: '你的故事/大綱', placeholder: '從前...' },
+        submitButton: '提交回饋',
         success: {
-            title: '反馈已发送！',
-            description: '感谢你与我们分享你的故事。'
+            title: '回饋已傳送！',
+            description: '感謝你與我們分享你的故事。'
         }
     },
     common: {
         error: {
-            title: '发生错误',
-            description: '出了一些问题。请稍后再试。'
+            title: '發生錯誤',
+            description: '出了一些問題。請稍後再試。'
         }
     }
   },

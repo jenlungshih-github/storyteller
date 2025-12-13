@@ -1,3 +1,4 @@
+
 'use client';
 
 import { Globe } from 'lucide-react';
@@ -20,7 +21,7 @@ export function LanguageSwitcher() {
             <Button variant="ghost" className="w-full justify-start gap-2 group-data-[collapsible=icon]:size-8 group-data-[collapsible=icon]:p-2 group-data-[collapsible=icon]:justify-center">
                 <Globe />
                 <span className="group-data-[collapsible=icon]:hidden">
-                    {language === 'en' ? 'Language' : '语言'}
+                    {language === 'en' ? 'Language' : '語言'}
                 </span>
             </Button>
         </DropdownMenuTrigger>
@@ -29,7 +30,7 @@ export function LanguageSwitcher() {
             English
           </DropdownMenuItem>
           <DropdownMenuItem onClick={() => setLanguage('zh')}>
-            中文 (Chinese)
+            繁體中文 (Traditional Chinese)
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
