@@ -77,6 +77,8 @@ const content = {
         },
         button: 'Expand Story',
         buttonLoading: 'Writing...',
+        saveButton: 'Save Story',
+        newStory: 'New Story',
         result: {
             title: 'Your Completed Story',
             description: 'Here is the full version of your story!',
@@ -85,11 +87,20 @@ const content = {
         error: {
             title: 'Empty Outline',
             description: 'Please provide an outline before expanding the story.'
+        },
+        saveSuccess: {
+            title: 'Story Saved!',
+            description: 'Your story has been added to the library.'
+        },
+        saveDuplicate: {
+            title: 'Story Already Saved',
+            description: 'This story is already in your library.'
         }
     },
     library: {
         title: 'Example Library',
         description: 'Explore these stories for inspiration.',
+        noStories: 'You haven\'t saved any stories yet. Go to the Story Expander to create and save one!',
         examples: [
             {
                 title: 'The Little Robot Who Found a Friend',
@@ -227,6 +238,8 @@ const content = {
         },
         button: '擴展故事',
         buttonLoading: '寫作中...',
+        saveButton: '儲存故事',
+        newStory: '新故事',
         result: {
             title: '你完成的故事',
             description: '這是你故事的完整版本！',
@@ -235,11 +248,20 @@ const content = {
         error: {
             title: '大綱為空',
             description: '在擴展故事之前，請提供一個大綱。'
+        },
+        saveSuccess: {
+            title: '故事已儲存！',
+            description: '你的故事已新增至資料庫。'
+        },
+        saveDuplicate: {
+            title: '故事已儲存',
+            description: '這個故事已經在你的資料庫中了。'
         }
     },
     library: {
         title: '範例庫',
         description: '探索這些故事以獲取靈感。',
+        noStories: '你尚未儲存任何故事。前往「故事擴展」頁面來創作並儲存一個吧！',
         examples: [
             {
                 title: '找到朋友的小機器人',

@@ -6,8 +6,8 @@ import { expandStoryOutline } from '@/ai/flows/expand-story-outline';
 
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Sparkles, WandSparkles } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
+import { Sparkles, WandSparkles, Save } from 'lucide-react';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useToast } from '@/hooks/use-toast';
 import { useLanguage } from '@/hooks/use-language';
@@ -45,6 +45,42 @@ function StoryExpanderContent() {
       });
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleSave = () => {
+    if (!story) return;
+
+    try {
+      const savedStories = JSON.parse(localStorage.getItem('savedStories') || '[]');
+      
+      const newStory = {
+        title: outline.split('\n')[0].replace('Character: ', '').split(',')[0] || t.expander.newStory,
+        summary: outline,
+        fullText: story,
+      };
+
+      // Avoid saving duplicates
+      if (!savedStories.some((s: any) => s.fullText === newStory.fullText)) {
+        const updatedStories = [...savedStories, newStory];
+        localStorage.setItem('savedStories', JSON.stringify(updatedStories));
+        toast({
+          title: t.expander.saveSuccess.title,
+          description: t.expander.saveSuccess.description,
+        });
+      } else {
+        toast({
+          title: t.expander.saveDuplicate.title,
+          description: t.expander.saveDuplicate.description,
+        });
+      }
+    } catch (error) {
+      console.error("Failed to save story:", error);
+      toast({
+        title: t.common.error.title,
+        description: t.common.error.description,
+        variant: 'destructive',
+      });
     }
   };
 
@@ -101,6 +137,14 @@ function StoryExpanderContent() {
                 </div>
               )}
             </CardContent>
+            {story && !loading && (
+              <CardFooter>
+                <Button onClick={handleSave} variant="outline">
+                  <Save />
+                  {t.expander.saveButton}
+                </Button>
+              </CardFooter>
+            )}
           </Card>
         </div>
       </main>
