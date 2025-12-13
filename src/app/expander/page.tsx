@@ -125,7 +125,7 @@ function StoryExpanderContent() {
                   <Skeleton className="h-4 w-full" />
                 </div>
               )}
-              {story && (
+              {story && !loading && (
                 <div className="prose prose-lg max-w-none text-foreground whitespace-pre-wrap font-body">
                     {story}
                 </div>
@@ -137,14 +137,12 @@ function StoryExpanderContent() {
                 </div>
               )}
             </CardContent>
-            {story && !loading && (
-              <CardFooter>
-                <Button onClick={handleSave} variant="outline">
-                  <Save />
-                  {t.expander.saveButton}
-                </Button>
-              </CardFooter>
-            )}
+            <CardFooter>
+              <Button onClick={handleSave} variant="outline" disabled={!story || loading}>
+                <Save />
+                {t.expander.saveButton}
+              </Button>
+            </CardFooter>
           </Card>
         </div>
       </main>
