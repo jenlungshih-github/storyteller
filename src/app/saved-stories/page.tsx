@@ -14,22 +14,29 @@ import {
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { useLanguage } from '@/hooks/use-language';
 import PageHeader from '@/components/page-header';
+import { getSavedStories } from '@/services/story-service';
+import type { Story } from '@/types/story';
 import { placeholderImages } from '@/lib/content';
-
-type Story = {
-  title: string;
-  summary: string;
-  fullText: string;
-};
+import { Skeleton } from '@/components/ui/skeleton';
 
 export default function SavedStoriesPage() {
   const { t } = useLanguage();
   const [stories, setStories] = useState<Story[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Client-side only: read from localStorage
-    const savedStories = JSON.parse(localStorage.getItem('savedStories') || '[]');
-    setStories(savedStories.reverse());
+    async function fetchStories() {
+      try {
+        setLoading(true);
+        const savedStories = await getSavedStories();
+        setStories(savedStories);
+      } catch (error) {
+        console.error("Failed to fetch saved stories:", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchStories();
   }, []);
 
   return (
@@ -39,14 +46,28 @@ export default function SavedStoriesPage() {
         description={t.savedStories.description}
       />
       <main className="flex-1 overflow-y-auto p-4 md:p-6">
-        {stories.length === 0 ? (
+        {loading ? (
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {Array.from({ length: 4 }).map((_, index) => (
+              <Card key={index}>
+                <CardHeader>
+                  <Skeleton className="aspect-[4/3] w-full mb-4" />
+                  <Skeleton className="h-6 w-3/4 mb-2" />
+                  <Skeleton className="h-4 w-full" />
+                  <Skeleton className="h-4 w-full" />
+                  <Skeleton className="h-4 w-1/2" />
+                </CardHeader>
+              </Card>
+            ))}
+          </div>
+        ) : stories.length === 0 ? (
           <div className="text-center text-muted-foreground py-10">
             <p>{t.savedStories.noStories}</p>
           </div>
         ) : (
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {stories.map((story, index) => (
-              <Dialog key={index}>
+              <Dialog key={story.id}>
                 <DialogTrigger asChild>
                   <Card className="cursor-pointer hover:shadow-lg transition-shadow duration-300 h-full flex flex-col">
                     <CardHeader>

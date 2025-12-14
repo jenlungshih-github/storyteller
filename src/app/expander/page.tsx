@@ -5,6 +5,7 @@ import { useState, Suspense } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { expandStoryOutline } from '@/ai/flows/expand-story-outline';
+import { saveStory } from '@/services/story-service';
 
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
@@ -21,6 +22,7 @@ function StoryExpanderContent() {
   const [outline, setOutline] = useState(initialOutline);
   const [story, setStory] = useState('');
   const [loading, setLoading] = useState(false);
+  const [saving, setSaving] = useState(false);
   const { toast } = useToast();
   const { t } = useLanguage();
 
@@ -50,37 +52,27 @@ function StoryExpanderContent() {
     }
   };
 
-  const handleSave = () => {
+  const handleSave = async () => {
     if (!story) return;
-
+    setSaving(true);
     try {
-      const savedStories = JSON.parse(localStorage.getItem('savedStories') || '[]');
-      
       const newStory = {
         title: outline.split('\n')[0].replace('Character: ', '').split(',')[0] || t.expander.newStory,
         summary: outline,
         fullText: story,
       };
 
-      // Avoid saving duplicates
-      if (!savedStories.some((s: any) => s.fullText === newStory.fullText)) {
-        const updatedStories = [...savedStories, newStory];
-        localStorage.setItem('savedStories', JSON.stringify(updatedStories));
-        toast({
-            title: t.expander.saveSuccess.title,
-            description: t.expander.saveSuccess.description,
-            action: (
-              <Button asChild variant="secondary">
-                <Link href="/saved-stories">{t.expander.saveSuccess.link}</Link>
-              </Button>
-            ),
-        });
-      } else {
-        toast({
-          title: t.expander.saveDuplicate.title,
-          description: t.expander.saveDuplicate.description,
-        });
-      }
+      await saveStory(newStory);
+
+      toast({
+        title: t.expander.saveSuccess.title,
+        description: t.expander.saveSuccess.description,
+        action: (
+          <Button asChild variant="secondary">
+            <Link href="/saved-stories">{t.expander.saveSuccess.link}</Link>
+          </Button>
+        ),
+      });
     } catch (error) {
       console.error("Failed to save story:", error);
       toast({
@@ -88,6 +80,8 @@ function StoryExpanderContent() {
         description: t.common.error.description,
         variant: 'destructive',
       });
+    } finally {
+      setSaving(false);
     }
   };
 
@@ -111,7 +105,7 @@ function StoryExpanderContent() {
                 placeholder={t.expander.outline.placeholder}
                 className="min-h-[300px] text-base"
               />
-              <Button onClick={handleExpand} disabled={loading} className="w-full">
+              <Button onClick={handleExpand} disabled={loading || saving} className="w-full">
                 {loading ? <WandSparkles className="animate-pulse" /> : <Sparkles />}
                 {loading ? t.expander.buttonLoading : t.expander.button}
               </Button>
@@ -145,9 +139,9 @@ function StoryExpanderContent() {
               )}
             </CardContent>
             <CardFooter>
-              <Button onClick={handleSave} variant="outline" disabled={!story || loading}>
+              <Button onClick={handleSave} variant="outline" disabled={!story || loading || saving}>
                 <Save />
-                {t.expander.saveButton}
+                {saving ? t.expander.saveButtonLoading : t.expander.saveButton}
               </Button>
             </CardFooter>
           </Card>

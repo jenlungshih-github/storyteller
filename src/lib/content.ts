@@ -80,6 +80,7 @@ const content = {
         button: 'Expand Story',
         buttonLoading: 'Writing...',
         saveButton: 'Save Story',
+        saveButtonLoading: 'Saving...',
         newStory: 'New Story',
         result: {
             title: 'Your Completed Story',
@@ -248,6 +249,7 @@ const content = {
         button: '擴展故事',
         buttonLoading: '寫作中...',
         saveButton: '儲存故事',
+        saveButtonLoading: '儲存中...',
         newStory: '新故事',
         result: {
             title: '你完成的故事',
