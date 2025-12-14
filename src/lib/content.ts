@@ -37,6 +37,7 @@ const content = {
       savedStories: 'Saved Stories',
       skills: 'Writing Skills',
       feedback: 'Submit Feedback',
+      openGemini: 'Open Gemini AI',
     },
     interactiveTemplate: {
       title: 'Create Your Story',
@@ -204,6 +205,7 @@ const content = {
       savedStories: '已存故事',
       skills: '寫作技巧',
       feedback: '提交回饋',
+      openGemini: '開啟 Gemini AI',
     },
     interactiveTemplate: {
       title: '創作你的故事',

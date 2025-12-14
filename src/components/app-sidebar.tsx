@@ -68,6 +68,17 @@ export function AppSidebar() {
             </SidebarMenuButton>
           </SidebarMenuItem>
         ))}
+         <SidebarMenuItem>
+            <SidebarMenuButton
+              asChild
+              tooltip={t.sidebar.openGemini}
+            >
+              <a href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer">
+                <Sparkles />
+                <span>{t.sidebar.openGemini}</span>
+              </a>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
       </SidebarMenu>
 
       <SidebarFooter>
