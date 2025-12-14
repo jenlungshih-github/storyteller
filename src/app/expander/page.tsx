@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState, Suspense } from 'react';
@@ -70,7 +71,7 @@ function StoryExpanderContent() {
             description: t.expander.saveSuccess.description,
             action: (
               <Button asChild variant="secondary">
-                <Link href="/library">{t.expander.saveSuccess.link}</Link>
+                <Link href="/saved-stories">{t.expander.saveSuccess.link}</Link>
               </Button>
             ),
         });

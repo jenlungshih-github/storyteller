@@ -33,7 +33,8 @@ const content = {
       home: 'Story Template',
       prompts: 'Prompt Generator',
       expander: 'Story Expander',
-      library: 'Example Library',
+      exampleLibrary: 'Example Library',
+      savedStories: 'Saved Stories',
       skills: 'Writing Skills',
       feedback: 'Submit Feedback',
     },
@@ -90,8 +91,8 @@ const content = {
         },
         saveSuccess: {
             title: 'Story Saved!',
-            description: 'Your story has been added to the library.',
-            link: 'View Library'
+            description: 'Your story has been added to your saved stories.',
+            link: 'View Saved Stories'
         },
         saveDuplicate: {
             title: 'Story Already Saved',
@@ -101,7 +102,6 @@ const content = {
     library: {
         title: 'Example Library',
         description: 'Explore these stories for inspiration.',
-        noStories: 'You haven\'t saved any stories yet. Go to the Story Expander to create and save one!',
         examples: [
             {
                 title: 'The Little Robot Who Found a Friend',
@@ -119,6 +119,11 @@ const content = {
                 fullText: 'Barnaby the bear was very grumpy. Winter was coming and he just wanted to sleep. But a little squirrel named Squeaky kept knocking on his door. "Go away!" Barnaby would roar. One day, Squeaky left a single, perfect acorn on his doorstep. Barnaby grumbled, but ate it. It was delicious. The next day, he found two acorns. Soon, his doorstep was filled with nuts and berries. Barnaby realized Squeaky was trying to be his friend. He opened the door and invited the little squirrel in to share the feast. Barnaby wasn\'t so grumpy after all.'
             },
         ],
+    },
+    savedStories: {
+        title: 'Your Saved Stories',
+        description: 'Here are all the wonderful stories you have created and saved.',
+        noStories: 'You haven\'t saved any stories yet. Go to the Story Expander to create and save one!',
     },
     skills: {
         title: 'Improve Your Writing Skills',
@@ -195,7 +200,8 @@ const content = {
       home: '故事範本',
       prompts: '靈感產生器',
       expander: '故事擴展',
-      library: '範例庫',
+      exampleLibrary: '範例庫',
+      savedStories: '已存故事',
       skills: '寫作技巧',
       feedback: '提交回饋',
     },
@@ -252,8 +258,8 @@ const content = {
         },
         saveSuccess: {
             title: '故事已儲存！',
-            description: '你的故事已新增至資料庫。',
-            link: '查看資料庫'
+            description: '你的故事已新增至您儲存的故事中。',
+            link: '查看已存故事'
         },
         saveDuplicate: {
             title: '故事已儲存',
@@ -263,7 +269,6 @@ const content = {
     library: {
         title: '範例庫',
         description: '探索這些故事以獲取靈感。',
-        noStories: '你尚未儲存任何故事。前往「故事擴展」頁面來創作並儲存一個吧！',
         examples: [
             {
                 title: '找到朋友的小機器人',
@@ -281,6 +286,11 @@ const content = {
                 fullText: '熊巴納比脾氣很壞。冬天快到了，他只想睡覺。但一隻叫吱吱的小松鼠不停地敲他的門。「走開！」巴納比會咆哮。一天，吱吱在他的門口放了一顆完美的橡子。巴納比抱怨著，但還是吃了。它很美味。第二天，他發現了兩顆橡子。很快，他的門口就堆滿了堅果和漿果。巴納比意識到吱吱想成為他的朋友。他打開門，邀請小松鼠進來分享盛宴。巴納比不再那麼脾氣暴躁了。'
             },
         ],
+    },
+    savedStories: {
+        title: '你儲存的故事',
+        description: '這是你創作並儲存的所有精彩故事。',
+        noStories: '你尚未儲存任何故事。前往「故事擴展」頁面來創作並儲存一個吧！',
     },
     skills: {
         title: '提高你的寫作技巧',

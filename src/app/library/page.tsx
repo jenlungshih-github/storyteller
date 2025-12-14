@@ -1,7 +1,8 @@
+
 'use client';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import {
   Dialog,
   DialogContent,
@@ -26,10 +27,8 @@ export default function LibraryPage() {
   const [stories, setStories] = useState<Story[]>([]);
 
   useEffect(() => {
-    // Client-side only: read from localStorage
-    const savedStories = JSON.parse(localStorage.getItem('savedStories') || '[]');
-    const allStories = [...t.library.examples, ...savedStories].reverse();
-    setStories(allStories);
+    // This page only shows the built-in examples.
+    setStories(t.library.examples);
   }, [t.library.examples]);
 
   return (
@@ -39,46 +38,40 @@ export default function LibraryPage() {
         description={t.library.description}
       />
       <main className="flex-1 overflow-y-auto p-4 md:p-6">
-        {stories.length === 0 ? (
-          <div className="text-center text-muted-foreground py-10">
-            <p>{t.library.noStories}</p>
-          </div>
-        ) : (
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {stories.map((story, index) => (
-              <Dialog key={index}>
-                <DialogTrigger asChild>
-                  <Card className="cursor-pointer hover:shadow-lg transition-shadow duration-300 h-full flex flex-col">
-                    <CardHeader>
-                      <div className="relative aspect-[4/3] mb-4">
-                        <Image
-                          src={placeholderImages[index % placeholderImages.length].imageUrl}
-                          alt={story.title}
-                          fill
-                          className="rounded-t-lg object-cover"
-                          data-ai-hint={placeholderImages[index % placeholderImages.length].imageHint}
-                        />
-                      </div>
-                      <CardTitle className="font-headline text-xl">{story.title}</CardTitle>
-                      <CardDescription className="line-clamp-3">{story.summary}</CardDescription>
-                    </CardHeader>
-                  </Card>
-                </DialogTrigger>
-                <DialogContent className="sm:max-w-2xl">
-                  <DialogHeader>
-                    <DialogTitle className="font-headline text-3xl">{story.title}</DialogTitle>
-                    <DialogDescription>{story.summary}</DialogDescription>
-                  </DialogHeader>
-                  <ScrollArea className="max-h-[60vh] pr-4">
-                    <div className="whitespace-pre-wrap font-body text-base py-4 leading-relaxed">
-                      {story.fullText}
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {stories.map((story, index) => (
+            <Dialog key={index}>
+              <DialogTrigger asChild>
+                <Card className="cursor-pointer hover:shadow-lg transition-shadow duration-300 h-full flex flex-col">
+                  <CardHeader>
+                    <div className="relative aspect-[4/3] mb-4">
+                      <Image
+                        src={placeholderImages[index % placeholderImages.length].imageUrl}
+                        alt={story.title}
+                        fill
+                        className="rounded-t-lg object-cover"
+                        data-ai-hint={placeholderImages[index % placeholderImages.length].imageHint}
+                      />
                     </div>
-                  </ScrollArea>
-                </DialogContent>
-              </Dialog>
-            ))}
-          </div>
-        )}
+                    <CardTitle className="font-headline text-xl">{story.title}</CardTitle>
+                    <CardDescription className="line-clamp-3">{story.summary}</CardDescription>
+                  </CardHeader>
+                </Card>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-2xl">
+                <DialogHeader>
+                  <DialogTitle className="font-headline text-3xl">{story.title}</DialogTitle>
+                  <DialogDescription>{story.summary}</DialogDescription>
+                </DialogHeader>
+                <ScrollArea className="max-h-[60vh] pr-4">
+                  <div className="whitespace-pre-wrap font-body text-base py-4 leading-relaxed">
+                    {story.fullText}
+                  </div>
+                </ScrollArea>
+              </DialogContent>
+            </Dialog>
+          ))}
+        </div>
       </main>
     </div>
   );

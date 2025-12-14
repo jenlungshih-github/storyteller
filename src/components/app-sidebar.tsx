@@ -1,3 +1,4 @@
+
 'use client';
 
 import { usePathname } from 'next/navigation';
@@ -8,6 +9,7 @@ import {
   Lightbulb,
   MessageSquare,
   PenSquare,
+  Save,
   Sparkles,
 } from 'lucide-react';
 import {
@@ -30,7 +32,8 @@ export function AppSidebar() {
     { href: '/', label: t.sidebar.home, icon: Home },
     { href: '/prompts', label: t.sidebar.prompts, icon: Lightbulb },
     { href: '/expander', label: t.sidebar.expander, icon: Sparkles },
-    { href: '/library', label: t.sidebar.library, icon: BookOpen },
+    { href: '/library', label: t.sidebar.exampleLibrary, icon: BookOpen },
+    { href: '/saved-stories', label: t.sidebar.savedStories, icon: Save },
     { href: '/skills', label: t.sidebar.skills, icon: Feather },
     { href: '/feedback', label: t.sidebar.feedback, icon: MessageSquare },
   ];
