@@ -1,26 +1,38 @@
 'use server';
 
-import { db } from '@/lib/firebase-admin';
+import { db } from '@/lib/firebase';
+import { collection, addDoc, getDocs, query, orderBy, serverTimestamp } from "firebase/firestore"; 
 import type { Story } from '@/types/story';
 
 export async function saveStory(story: Omit<Story, 'id'>): Promise<Story> {
-  const storyRef = await db.collection('stories').add({
+  const storyWithTimestamp = {
     ...story,
-    createdAt: new Date().toISOString(),
-  });
+    createdAt: serverTimestamp(),
+  };
+
+  const docRef = await addDoc(collection(db, "stories"), storyWithTimestamp);
+  
   return {
-    id: storyRef.id,
+    id: docRef.id,
     ...story,
   };
 }
 
 export async function getSavedStories(): Promise<Story[]> {
-  const snapshot = await db.collection('stories').orderBy('createdAt', 'desc').get();
+  const q = query(collection(db, "stories"), orderBy("createdAt", "desc"));
+  const snapshot = await getDocs(q);
+  
   if (snapshot.empty) {
     return [];
   }
-  return snapshot.docs.map(doc => ({
-    id: doc.id,
-    ...(doc.data() as Omit<Story, 'id'>),
-  }));
+  
+  return snapshot.docs.map(doc => {
+    const data = doc.data();
+    return {
+      id: doc.id,
+      title: data.title,
+      summary: data.summary,
+      fullText: data.fullText,
+    } as Story;
+  });
 }
