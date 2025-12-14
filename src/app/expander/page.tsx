@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, Suspense } from 'react';
+import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { expandStoryOutline } from '@/ai/flows/expand-story-outline';
 
@@ -65,8 +66,13 @@ function StoryExpanderContent() {
         const updatedStories = [...savedStories, newStory];
         localStorage.setItem('savedStories', JSON.stringify(updatedStories));
         toast({
-          title: t.expander.saveSuccess.title,
-          description: t.expander.saveSuccess.description,
+            title: t.expander.saveSuccess.title,
+            description: t.expander.saveSuccess.description,
+            action: (
+              <Button asChild variant="secondary">
+                <Link href="/library">{t.expander.saveSuccess.link}</Link>
+              </Button>
+            ),
         });
       } else {
         toast({

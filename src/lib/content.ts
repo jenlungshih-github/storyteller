@@ -90,7 +90,8 @@ const content = {
         },
         saveSuccess: {
             title: 'Story Saved!',
-            description: 'Your story has been added to the library.'
+            description: 'Your story has been added to the library.',
+            link: 'View Library'
         },
         saveDuplicate: {
             title: 'Story Already Saved',
@@ -251,7 +252,8 @@ const content = {
         },
         saveSuccess: {
             title: '故事已儲存！',
-            description: '你的故事已新增至資料庫。'
+            description: '你的故事已新增至資料庫。',
+            link: '查看資料庫'
         },
         saveDuplicate: {
             title: '故事已儲存',
@@ -271,7 +273,7 @@ const content = {
             {
                 title: '魔法樹屋',
                 summary: '兩個朋友建造了一個可以飛到任何他們想像地方的樹屋。',
-                fullText: '米婭和湯姆最想要一個樹屋。他們收集了舊木板、彎曲的釘子和彩色的油漆。它不完美，但它是他們的。一個陽光明媚的下午，米婭希望能看到大海。樹屋嘎吱作響，然後升入了空中！他們飛越了他們的小鎮，降落在一個沙灘上。他們的魔法樹屋可以帶他們去任何地方，只要他們一起想像。'
+                fullText: '米婭和湯姆最想要一個樹屋。他們收集了舊木板、彎曲的釘子和彩色的油漆。它不完美，但它是他們的。一個陽光明媚的下午，米婭希望能看到大海。樹屋嘎吱作響，然後升入了空中！他們飛越了他們的小鎮，降落在一個沙滩上。他們的魔法樹屋可以帶他們去任何地方，只要他們一起想像。'
             },
             {
                 title: '脾氣暴躁的熊的驚喜',
@@ -321,7 +323,7 @@ const content = {
             },
             {
                 title: '展示，而非告知情感',
-                explanation: '不要直接說一個角色很傷心，而是描述他們的行為。這有助於讀者感受情感。',
+                explanation: '不要直接說一个角色很傷心，而是描述他們的行為。這有助於讀者感受情感。',
                 example: {
                     before: '那個男孩很傷心。',
                     after: '男孩的肩膀垮了下來，一滴眼淚順著他的臉頰滑落。'
