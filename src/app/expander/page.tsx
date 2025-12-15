@@ -53,11 +53,22 @@ function StoryExpanderContent() {
   };
 
   const handleSave = async () => {
-    if (!story) return;
+    if (!story || !outline) {
+      toast({
+        title: t.expander.error.title,
+        description: "Cannot save without a story and an outline.",
+        variant: 'destructive',
+      });
+      return;
+    }
+
     setSaving(true);
     try {
+      const titleLine = outline.split('\n').find(line => line.startsWith('Character:')) || '';
+      const characterName = titleLine.replace('Character: ', '').split(',')[0].trim();
+      
       const newStory = {
-        title: outline.split('\n')[0].replace('Character: ', '').split(',')[0] || t.expander.newStory,
+        title: characterName || t.expander.newStory,
         summary: outline,
         fullText: story,
       };
